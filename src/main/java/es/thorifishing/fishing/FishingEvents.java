@@ -28,11 +28,11 @@ public final class FishingEvents {
 
         Random random = new Random();
         int bonusXp = 10 + random.nextInt(16);
-        int previousXp = player.getPersistentData().getInt(XP_KEY);
+        int previousXp = player.getPersistentData().getIntOr(XP_KEY, 0);
         int previousLevel = FishingProgress.levelForXp(previousXp);
         int currentXp = Math.min(Integer.MAX_VALUE - bonusXp, previousXp) + bonusXp;
         player.getPersistentData().putInt(XP_KEY, currentXp);
-        int catches = player.getPersistentData().getInt(CATCHES_KEY) + 1;
+        int catches = player.getPersistentData().getIntOr(CATCHES_KEY, 0) + 1;
         player.getPersistentData().putInt(CATCHES_KEY, catches);
 
         // Bonus species are deliberately rare; standard vanilla loot is preserved.
