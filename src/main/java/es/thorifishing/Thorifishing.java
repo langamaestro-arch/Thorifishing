@@ -20,9 +20,9 @@ public final class Thorifishing {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MOD_ID);
     public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MOD_ID);
 
-    public static final DeferredItem<Item> WORM_BAIT = ITEMS.registerSimpleItem("worm_bait", new Item.Properties());
-    public static final DeferredItem<Item> CRYSTAL_FISH = ITEMS.registerSimpleItem("crystal_fish", new Item.Properties());
-    public static final DeferredItem<Item> GOLDEN_CARP = ITEMS.registerSimpleItem("golden_carp", new Item.Properties());
+    public static final DeferredItem<Item> WORM_BAIT = ITEMS.registerSimpleItem("worm_bait", Item.Properties::new);
+    public static final DeferredItem<Item> CRYSTAL_FISH = ITEMS.registerSimpleItem("crystal_fish", Item.Properties::new);
+    public static final DeferredItem<Item> GOLDEN_CARP = ITEMS.registerSimpleItem("golden_carp", Item.Properties::new);
 
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> FISHING_TAB = TABS.register("fishing", () ->
         CreativeModeTab.builder()
