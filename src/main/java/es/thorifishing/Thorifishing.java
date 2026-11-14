@@ -1,6 +1,8 @@
 package es.thorifishing;
 
 import com.mojang.logging.LogUtils;
+import es.thorifishing.fishing.FishingEvents;
+import net.neoforged.neoforge.common.NeoForge;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -38,6 +40,7 @@ public final class Thorifishing {
     public Thorifishing(IEventBus modEventBus) {
         ITEMS.register(modEventBus);
         TABS.register(modEventBus);
+        NeoForge.EVENT_BUS.register(new FishingEvents());
         LOGGER.info("Thorifishing 0.1.0: registered starter fishing items");
     }
 }
